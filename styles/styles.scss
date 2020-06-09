@@ -1,5 +1,129 @@
 * {
   margin: 0;
-  border: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #616161;
+}
+
+//GLOBALES
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.contenedor {
+  width: 95%;
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 50px 0;
+}
+
+.oculto {
+  display: none;
+}
+
+//BOTONES
+
+//COLORES Y TIPOGRAFIAS
+
+:root {
+  --color-textos-oscuro: #333;
+  --color-fondo-oscuro: #f6f6f6;
+  --color-principal: #aaf0df;
+  --fuente-principal: "Montserrat", sans-serif;
+  --textos-pequeños: 0.6875rem;
+  --textos-comunes: 0.75rem;
+  --textos-grandes: 1.5rem;
+}
+
+//MIXINS
+
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin background($size, $repeat, $position) {
+  background-size: $size;
+  background-repeat: $repeat;
+  background-position: $position;
+}
+
+//ESTILOS NAVEGACION PRINCIPAL
+.navegacion-principal {
+  background: aqua;
+  width: 100%;
+  height: 50px;
+  @include flexbox(column, center, center);
+}
+.barra-superior {
+  width: 100%;
+  height: 50px;
+  background: green;
+  @include flexbox(row, center, center);
+
+  .logo {
+    background: red;
+    height: 100%;
+    width: 60%;
+    @include flexbox(row, center, center);
+  }
+  .extras {
+    @include flexbox(row, center, center);
+    background: blue;
+    height: 100%;
+    width: 20%;
+  }
+}
+.menu-movil {
+  width: 20%;
+  height: 100%;
+  background-color: aqua;
+  @include flexbox(column, center, center);
+  .hamburguesa {
+    width: 25px;
+    height: 3px;
+    margin: 3px;
+    background: black;
+  }
+}
+@media (min-width: 768px) {
+  .navegacion-principal {
+    height: 100px;
+  }
+  .menu-movil {
+    @include flexbox(row, center, center);
+    .hamburguesa {
+      display: none;
+    }
+    .oculto {
+      background-color: aqua;
+    }
+  }
+  .oculto {
+    background-color: yellow;
+    width: 100%;
+    height: 50px;
+    @include flexbox(row, center, center);
+    .links {
+      background: magenta;
+      width: 60%;
+      height: 100%;
+      @include flexbox(row, center, center);
+      list-style-type: none;
+    }
+    li {
+      width: 20%;
+      height: 100%;
+      background: aqua;
+      margin: auto;
+      @include flexbox(row, center, center);
+    }
+  }
 }

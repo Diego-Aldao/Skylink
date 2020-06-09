@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +8,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #616161;
+  background-color: #f0f0f0;
 }
 
 img {
@@ -30,9 +30,9 @@ img {
 :root {
   --color-textos-oscuro: #333;
   --color-fondo-oscuro: #f6f6f6;
-  --color-principal: #aaf0df;
+  --color-principal: #5bf5ce;
   --fuente-principal: "Montserrat", sans-serif;
-  --textos-pequeños: 0.6875rem;
+  --textos-peque: 0.6875rem;
   --textos-comunes: 0.75rem;
   --textos-grandes: 1.5rem;
 }
@@ -219,6 +219,127 @@ img {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+}
+
+.header-principal {
+  background: url(../images/photography-of-a-man-wearing-gray-jacket-looking-back-792385.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 20px;
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40vh;
+  position: relative;
+}
+
+.header-principal::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.596);
+}
+
+.contenido-header {
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.contenido-header .tag {
+  font-size: var(--textos-peque);
+  font-family: var(--fuente-principal);
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--color-principal);
+}
+
+.contenido-header .tag,
+.contenido-header .contenedor-datos {
+  padding: 0 15px;
+}
+
+.contenido-header .tema-principal {
+  text-transform: capitalize;
+  font-size: var(--textos-grandes);
+  font-family: var(--fuente-principal);
+  color: #fff;
+  margin: 0;
+  padding: 15px;
+}
+
+.contenido-header .contenedor-datos {
+  color: white;
+  width: 100%;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 15px;
+}
+
+.contenido-header .datos {
+  width: 33.33%;
+  height: 100%;
+  font-size: var(--textos-peque);
+  color: var(--color-fondo-oscuro);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 768px) {
+  .contenido-header {
+    max-width: 80%;
+  }
+  .contenido-header .datos {
+    width: 150px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

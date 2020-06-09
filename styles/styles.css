@@ -8,7 +8,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #616161;
-  background-color: #f0f0f0;
+  background-color: var(--color-fondo-oscuro);
 }
 
 img {
@@ -17,14 +17,72 @@ img {
 }
 
 .contenedor {
-  width: 95%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 0 auto 15px;
   max-width: 1240px;
   padding: 50px 0;
 }
 
 .oculto {
   display: none;
+}
+
+.tag {
+  font-size: var(--textos-peque);
+  font-family: var(--fuente-principal);
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--color-principal);
+  letter-spacing: 1px;
+}
+
+.tema-principal {
+  text-transform: capitalize;
+  font-size: var(--textos-grandes);
+  font-family: var(--fuente-principal);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.contenedor-datos {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.datos {
+  height: 100%;
+  font-size: var(--textos-peque);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  align-items: center;
 }
 
 :root {
@@ -35,6 +93,7 @@ img {
   --textos-peque: 0.6875rem;
   --textos-comunes: 0.75rem;
   --textos-grandes: 1.5rem;
+  --color-textos-comunes: #616161;
 }
 
 .navegacion-principal {
@@ -244,6 +303,7 @@ img {
           align-items: center;
   height: 40vh;
   position: relative;
+  border-radius: 5px;
 }
 
 .header-principal::after {
@@ -253,6 +313,7 @@ img {
   position: absolute;
   top: 0;
   background: rgba(0, 0, 0, 0.596);
+  border-radius: 5px;
 }
 
 .contenido-header {
@@ -272,66 +333,27 @@ img {
           align-items: flex-start;
 }
 
-.contenido-header .tag {
-  font-size: var(--textos-peque);
-  font-family: var(--fuente-principal);
-  text-transform: uppercase;
-  font-weight: 800;
-  color: var(--color-principal);
-}
-
 .contenido-header .tag,
 .contenido-header .contenedor-datos {
   padding: 0 15px;
 }
 
-.contenido-header .tema-principal {
-  text-transform: capitalize;
-  font-size: var(--textos-grandes);
-  font-family: var(--fuente-principal);
-  color: #fff;
-  margin: 0;
-  padding: 15px;
-}
-
 .contenido-header .contenedor-datos {
-  color: white;
-  width: 100%;
-  height: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 15px;
+  margin-top: 15px;
 }
 
 .contenido-header .datos {
-  width: 33.33%;
-  height: 100%;
-  font-size: var(--textos-peque);
-  color: var(--color-fondo-oscuro);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 65px;
+  color: #fff;
+}
+
+.contenido-header .datos:nth-child(1) {
+  width: 120px;
+}
+
+.contenido-header .tema-principal {
+  padding: 20px 15px;
+  color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -341,5 +363,95 @@ img {
   .contenido-header .datos {
     width: 150px;
   }
+}
+
+.contenedor-subtitulos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contenedor-subtitulos .subtitulos {
+  font-family: var(--fuente-principal);
+  text-transform: capitalize;
+  color: var(--color-textos-oscuro);
+  min-width: 190px;
+}
+
+.contenedor-subtitulos .linea {
+  background: #cacaca;
+  height: 1px;
+  width: calc(100% - 210px);
+}
+
+.cartas-principales {
+  width: 100%;
+  margin: 25px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 1px 1px 5px silver;
+          box-shadow: 1px 1px 5px silver;
+  border-radius: 10px;
+}
+
+.cartas-principales .contenedor-img-carta-principal {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cartas-principales .contenedor-descripcion-carta-principal {
+  margin: 30px 0;
+  padding: 0 10px;
+}
+
+.cartas-principales .tag,
+.cartas-principales .tema-principal,
+.cartas-principales .texto-comun {
+  margin: 10px 0;
+}
+
+.cartas-principales .tema-principal {
+  color: var(--color-textos-oscuro);
+}
+
+.cartas-principales .tag {
+  display: block;
+  color: #1b9677;
+  font-size: 0.8rem;
+}
+
+.cartas-principales .texto-comun {
+  font-size: var(--textos-comunes);
+  text-align: left;
+  line-height: 25px;
+}
+
+.cartas-principales .contenedor-datos {
+  height: 40px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.cartas-principales .datos {
+  width: 25%;
 }
 /*# sourceMappingURL=styles.css.map */

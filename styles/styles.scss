@@ -64,6 +64,11 @@ img {
   @include flexbox(row, center, center);
   @include flexbox(row, space-evenly, center);
 }
+.texto-comun {
+  font-size: var(--textos-comunes);
+  text-align: left;
+  line-height: 25px;
+}
 //BOTONES
 
 //COLORES Y TIPOGRAFIAS
@@ -162,7 +167,7 @@ img {
   margin-top: 20px;
   padding: 20px 0;
   @include flexbox(column, flex-end, center);
-  height: 40vh;
+  height: 400px;
   position: relative;
   border-radius: 5px;
 }
@@ -205,6 +210,19 @@ img {
     }
   }
 }
+@media (min-width: 1024px) {
+  .header-principal {
+    height: 500px;
+    justify-content: center;
+  }
+  .contenido-header {
+    height: 100%;
+    background-color: red;
+    .contenedor-datos {
+      background-color: blue;
+    }
+  }
+}
 
 //INICIO ENTRADAS-PRINCIPALES
 
@@ -222,12 +240,158 @@ img {
     width: calc(100% - 210px);
   }
 }
+.contenedor-entradas {
+  @include flexbox(column, center, center);
+}
 .cartas-principales {
   width: 100%;
   margin: 25px 0;
   display: flex;
   flex-direction: column;
-  box-shadow: 1px 1px 5px rgb(192, 192, 192);
+  box-shadow: 1px 1px 5px rgb(218, 217, 217);
+  border-radius: 10px;
+  max-width: 400px;
+  .contenedor-img-carta-principal {
+    width: 100%;
+    @include background(cover, no-repeat, center);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .contenedor-descripcion-carta-principal {
+    margin: 30px 0;
+    padding: 0 10px;
+  }
+  .tag,
+  .tema-principal,
+  .texto-comun {
+    margin: 10px 0;
+  }
+  .tema-principal {
+    color: var(--color-textos-oscuro);
+  }
+  .tag {
+    display: block;
+    color: #1b9677;
+    font-size: 0.8rem;
+  }
+
+  .contenedor-datos {
+    height: 40px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .datos {
+    width: 25%;
+  }
+}
+
+@media (min-width: 650px) {
+  .contenedor-entradas {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .cartas-principales {
+    flex-basis: 48%;
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contenedor-entradas {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .cartas-principales {
+    flex-basis: 32%;
+  }
+}
+
+//INICIO SECCION NOTICIAS
+.contenedor-noticias {
+  @include flexbox(column, center, center);
+  margin-top: 30px;
+}
+
+.cartas-noticias {
+  margin: 20px 0;
+  @include flexbox(row, flex-start, flex-start);
+  max-width: 500px;
+  .imagen-noticia {
+    background: blue;
+    width: 30%;
+    max-width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  .descripcion-noticia {
+    width: 70%;
+  }
+  .tag {
+    color: #1b9677;
+  }
+  .tema-principal {
+    font-size: var(--textos-comunes);
+    font-weight: 900;
+    margin-top: 5px;
+  }
+}
+@media (min-width: 650px) {
+  .contenedor-noticias {
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .cartas-noticias {
+    flex-basis: 40%;
+  }
+}
+@media (min-width: 1024px) {
+  .cartas-noticias {
+    flex-basis: 23%;
+  }
+}
+
+//INICIO SECCION NEWSLETTER
+
+.subscripcion {
+  background-color: #ebebeb;
+  padding: 0px 15px;
+  height: 400px;
+  @include flexbox(column, space-evenly, center);
+  .tema-principal {
+    text-align: center;
+  }
+  .texto-comun {
+    font-size: 14px;
+    text-align: center;
+    max-width: 700px;
+  }
+  .input-registro {
+    width: 100%;
+    height: 40px;
+    @include flexbox(row, center, center);
+    max-width: 400px;
+    .newsletter {
+      width: 70%;
+      height: 100%;
+    }
+    .btn {
+      width: 25%;
+      height: 100%;
+    }
+  }
+}
+
+//inicio seccion ultimos posts
+
+.cartas-ultimos-post {
+  width: 100%;
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 5px rgb(218, 217, 217);
   border-radius: 10px;
   .contenedor-img-carta-principal {
     width: 100%;
@@ -252,14 +416,10 @@ img {
     color: #1b9677;
     font-size: 0.8rem;
   }
-  .texto-comun {
-    font-size: var(--textos-comunes);
-    text-align: left;
-    line-height: 25px;
-  }
+
   .contenedor-datos {
     height: 40px;
-    max-width: 500px;
+    width: 80%;
     margin: 0 auto;
   }
   .datos {

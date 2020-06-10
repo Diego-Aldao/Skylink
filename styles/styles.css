@@ -96,6 +96,7 @@ img {
   background: none;
   border: 1px solid var(--color-principal);
   font-size: var(--textos-peque);
+  font-weight: bold;
 }
 
 .btn-num {
@@ -108,6 +109,7 @@ img {
   background: -webkit-gradient(linear, left top, left bottom, from(#f67280), to(#c06c84));
   background: linear-gradient(#f67280, #c06c84);
   border: none;
+  color: white;
 }
 
 .btn-secundario {
@@ -126,7 +128,6 @@ img {
   --textos-grandes: 1.5rem;
   --color-textos-comunes: #616161;
   --color1: #f8b195;
-  --color2: #c06c84;
   --color3: #6c5b7b;
   --color4: #355c7d;
 }
@@ -316,6 +317,12 @@ img {
   }
 }
 
+.linea {
+  background: var(--color-principal);
+  height: 1px;
+  width: calc(100% - 210px);
+}
+
 .header-principal {
   background: url(../images/photography-of-a-man-wearing-gray-jacket-looking-back-792385.jpg);
   background-size: cover;
@@ -374,9 +381,14 @@ img {
   margin-top: 15px;
 }
 
+.contenido-header .tag {
+  font-size: clamp(0.6875rem, 1vw, 0.9rem);
+}
+
 .contenido-header .datos {
   width: 65px;
   color: #fff;
+  font-size: clamp(0.6875rem, 1vw, 0.9rem);
 }
 
 .contenido-header .datos:nth-child(1) {
@@ -386,7 +398,8 @@ img {
 .contenido-header .tema-principal {
   padding: 20px 15px;
   color: #fff;
-  font-size: clamp(1.5rem, 2vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  max-width: 900px;
 }
 
 @media (min-width: 768px) {
@@ -407,10 +420,12 @@ img {
   }
   .contenido-header {
     height: 100%;
-    background-color: red;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
   .contenido-header .contenedor-datos {
-    background-color: blue;
+    margin: 50px 0 20px 0;
   }
 }
 
@@ -435,12 +450,6 @@ img {
   text-transform: capitalize;
   color: var(--color-textos-oscuro);
   min-width: 190px;
-}
-
-.contenedor-subtitulos .linea {
-  background: #cacaca;
-  height: 1px;
-  width: calc(100% - 210px);
 }
 
 .contenedor-entradas {
@@ -480,12 +489,24 @@ img {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   overflow: hidden;
+  position: relative;
+}
+
+.cartas-principales .contenedor-img-carta-principal::after {
+  content: "";
+  background: var(--color-fondo-oscuro);
+  height: 80px;
+  width: 110%;
+  position: absolute;
+  bottom: -55px;
+  left: 0;
+  -webkit-transform: skewY(5deg);
+          transform: skewY(5deg);
 }
 
 .cartas-principales .contenedor-descripcion-carta-principal {
-  margin: 30px 0;
   padding: 0 10px;
 }
 
@@ -501,8 +522,6 @@ img {
 
 .cartas-principales .tag {
   display: block;
-  color: #1b9677;
-  font-size: 0.8rem;
 }
 
 .cartas-principales .contenedor-datos {
@@ -595,10 +614,6 @@ img {
 
 .cartas-noticias .descripcion-noticia {
   width: 70%;
-}
-
-.cartas-noticias .tag {
-  color: #1b9677;
 }
 
 .cartas-noticias .tema-principal {
@@ -712,8 +727,9 @@ img {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   overflow: hidden;
+  position: relative;
 }
 
 .cartas-ultimos-post .contenedor-descripcion-carta-principal {
@@ -733,8 +749,6 @@ img {
 
 .cartas-ultimos-post .tag {
   display: block;
-  color: #1b9677;
-  font-size: 0.8rem;
 }
 
 .cartas-ultimos-post .contenedor-datos {
@@ -759,6 +773,18 @@ img {
     -ms-flex-preferred-size: 45%;
         flex-basis: 45%;
   }
+  .cartas-ultimos-post .contenedor-img-carta-principal::after {
+    content: "";
+    background: red;
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -50px;
+    -webkit-transform: skew(-5deg);
+            transform: skew(-5deg);
+    background: var(--color-fondo-oscuro);
+  }
   .cartas-ultimos-post .contenedor-descripcion-carta-principal {
     margin: 0;
     -ms-flex-preferred-size: 55%;
@@ -770,7 +796,25 @@ img {
     padding: 10px 20px;
   }
   .cartas-ultimos-post .contenedor-datos {
-    margin-top: 30px;
+    margin: 30px 0 0 0;
+  }
+  .cartas-ultimos-post .datos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cartas-ultimos-post .datos i {
+    margin-right: 10px;
   }
 }
 
@@ -812,10 +856,6 @@ img {
 
 .cartas-mas-leidos .descripcion-noticia {
   width: 65%;
-}
-
-.cartas-mas-leidos .tag {
-  color: #1b9677;
 }
 
 .cartas-mas-leidos .tema-principal {

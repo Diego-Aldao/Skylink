@@ -75,6 +75,7 @@ img {
   background: none;
   border: 1px solid var(--color-principal);
   font-size: var(--textos-peque);
+  font-weight: bold;
 }
 .btn-num {
   border-radius: 50%;
@@ -84,6 +85,7 @@ img {
 .btn-num:nth-child(1) {
   background: linear-gradient(#f67280, #c06c84);
   border: none;
+  color: white;
 }
 .btn-secundario {
   border-radius: 40px;
@@ -103,7 +105,6 @@ img {
   --textos-grandes: 1.5rem;
   --color-textos-comunes: #616161;
   --color1: #f8b195;
-  --color2: #c06c84;
   --color3: #6c5b7b;
   --color4: #355c7d;
 }
@@ -136,6 +137,7 @@ img {
     width: 20%;
   }
 }
+
 .menu-movil {
   width: 20%;
   height: 100%;
@@ -182,6 +184,11 @@ img {
     }
   }
 }
+.linea {
+  background: var(--color-principal);
+  height: 1px;
+  width: calc(100% - 210px);
+}
 
 //HEADER-PRINCIPAL
 
@@ -212,9 +219,13 @@ img {
     padding: 0 15px;
     margin-top: 15px;
   }
+  .tag {
+    font-size: clamp(0.6875rem, 1vw, 0.9rem);
+  }
   .datos {
     width: 65px;
     color: #fff;
+    font-size: clamp(0.6875rem, 1vw, 0.9rem);
   }
   .datos:nth-child(1) {
     width: 120px;
@@ -222,7 +233,8 @@ img {
   .tema-principal {
     padding: 20px 15px;
     color: #fff;
-    font-size: clamp(1.5rem, 2vw, 3rem);
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    max-width: 900px;
   }
 }
 @media (min-width: 768px) {
@@ -240,9 +252,9 @@ img {
   }
   .contenido-header {
     height: 100%;
-    background-color: red;
+    justify-content: flex-end;
     .contenedor-datos {
-      background-color: blue;
+      margin: 50px 0 20px 0;
     }
   }
 }
@@ -256,11 +268,6 @@ img {
     text-transform: capitalize;
     color: var(--color-textos-oscuro);
     min-width: 190px;
-  }
-  .linea {
-    background: #cacaca; //para cambiar
-    height: 1px;
-    width: calc(100% - 210px);
   }
 }
 .contenedor-entradas {
@@ -277,11 +284,21 @@ img {
   .contenedor-img-carta-principal {
     width: 100%;
     @include background(cover, no-repeat, center);
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     overflow: hidden;
+    position: relative;
+  }
+  .contenedor-img-carta-principal::after {
+    content: "";
+    background: var(--color-fondo-oscuro);
+    height: 80px;
+    width: 110%;
+    position: absolute;
+    bottom: -55px;
+    left: 0;
+    transform: skewY(5deg);
   }
   .contenedor-descripcion-carta-principal {
-    margin: 30px 0;
     padding: 0 10px;
   }
   .tag,
@@ -294,8 +311,6 @@ img {
   }
   .tag {
     display: block;
-    color: #1b9677;
-    font-size: 0.8rem;
   }
 
   .contenedor-datos {
@@ -350,9 +365,6 @@ img {
   }
   .descripcion-noticia {
     width: 70%;
-  }
-  .tag {
-    color: #1b9677;
   }
   .tema-principal {
     font-size: var(--textos-comunes);
@@ -421,13 +433,15 @@ img {
   .contenedor-img-carta-principal {
     width: 100%;
     @include background(cover, no-repeat, center);
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
     overflow: hidden;
+    position: relative;
   }
   .contenedor-descripcion-carta-principal {
     margin: 30px 0;
     padding: 0 10px;
   }
+
   .tag,
   .tema-principal,
   .texto-comun {
@@ -438,8 +452,6 @@ img {
   }
   .tag {
     display: block;
-    color: #1b9677;
-    font-size: 0.8rem;
   }
 
   .contenedor-datos {
@@ -460,6 +472,17 @@ img {
     .contenedor-img-carta-principal {
       flex-basis: 45%;
     }
+    .contenedor-img-carta-principal::after {
+      content: "";
+      background: red;
+      width: 80px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -50px;
+      transform: skew(-5deg);
+      background: var(--color-fondo-oscuro);
+    }
     .contenedor-descripcion-carta-principal {
       margin: 0;
       flex-basis: 55%;
@@ -468,7 +491,13 @@ img {
       padding: 10px 20px;
     }
     .contenedor-datos {
-      margin-top: 30px;
+      margin: 30px 0 0 0;
+    }
+    .datos {
+      @include flexbox(row, flex-start, center);
+      i {
+        margin-right: 10px;
+      }
     }
   }
 }
@@ -500,9 +529,6 @@ img {
   }
   .descripcion-noticia {
     width: 65%;
-  }
-  .tag {
-    color: #1b9677;
   }
   .tema-principal {
     font-size: var(--textos-comunes);

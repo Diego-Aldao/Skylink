@@ -70,6 +70,25 @@ img {
   line-height: 25px;
 }
 //BOTONES
+.btn-num,
+.btn-secundario {
+  background: none;
+  border: 1px solid var(--color-principal);
+  font-size: var(--textos-peque);
+}
+.btn-num {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.btn-num:nth-child(1) {
+  background-color: var(--color-principal);
+}
+.btn-secundario {
+  border-radius: 40px;
+  padding: 10px 15px;
+  margin-left: 10px;
+}
 
 //COLORES Y TIPOGRAFIAS
 
@@ -186,8 +205,6 @@ img {
   .tag,
   .contenedor-datos {
     padding: 0 15px;
-  }
-  .contenedor-datos {
     margin-top: 15px;
   }
   .datos {
@@ -424,5 +441,63 @@ img {
   }
   .datos {
     width: 25%;
+  }
+}
+
+//media querys ultimos post
+@media (min-width: 768px) {
+  .cartas-ultimos-post {
+    flex-direction: row;
+    height: 300px;
+    .contenedor-img-carta-principal {
+      flex-basis: 45%;
+    }
+    .contenedor-descripcion-carta-principal {
+      margin: 0;
+      flex-basis: 55%;
+      justify-content: space-between;
+      height: 100%;
+      padding: 10px 20px;
+    }
+    .contenedor-datos {
+      margin-top: 30px;
+    }
+  }
+}
+
+//INICIO SECCION MAS LEIDOS
+
+.cartas-mas-leidos {
+  margin: 20px 0;
+  @include flexbox(row, flex-start, flex-start);
+  max-width: 500px;
+  border-bottom: 1px solid #cacaca;
+  .imagen-noticia {
+    background: blue;
+    width: 35%;
+    max-width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  .descripcion-noticia {
+    width: 65%;
+  }
+  .tag {
+    color: #1b9677;
+  }
+  .tema-principal {
+    font-size: var(--textos-comunes);
+    font-weight: 900;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  .contenedor-datos {
+    height: 40px;
+    margin: 0;
+    @include flexbox(row, space-evenly, center);
+    .datos {
+      width: 33%;
+    }
   }
 }

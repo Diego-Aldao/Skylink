@@ -395,10 +395,10 @@ img {
 //INICIO SECCION NEWSLETTER
 
 .subscripcion {
-  background: linear-gradient(45deg, #c06c84, #355c7d);
+  background: #eeeeee;
   padding: 0px 15px;
   height: 400px;
-  color: white;
+  color: var(--color-textos-oscuro);
   @include flexbox(column, space-evenly, center);
   .tema-principal {
     text-align: center;
@@ -417,10 +417,21 @@ img {
     .newsletter {
       width: 70%;
       height: 100%;
+      border: 1px solid #355c7d;
+      border-radius: 15px 0 0 15px;
     }
     .btn {
       width: 25%;
       height: 100%;
+      border: none;
+      border-radius: 0 15px 15px 0;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #355c7d, #6c5b7b 65%);
+      color: white;
+      font-style: italic;
+      letter-spacing: 1px;
+      padding: 1px;
+      font-size: 0.75rem;
     }
   }
 }
@@ -623,5 +634,52 @@ img {
       height: 60px;
       width: 60px;
     }
+  }
+}
+
+//INICIO FOOTER
+
+.footer-index {
+  background: rgb(32, 32, 32);
+  color: white;
+  .subtitulos {
+    color: white;
+  }
+  .footer-negrita {
+    margin: 25px 0;
+    font-weight: bold;
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: -1px;
+  }
+  .redes-footer {
+    height: 30px;
+    margin-top: 20px;
+    @include flexbox(row, flex-start, center);
+    max-width: 400px;
+    i {
+      font-size: 1.3rem;
+      margin-right: auto;
+    }
+  }
+  .texto-comun {
+    max-width: 700px;
+  }
+  .contenedor-tags-footer {
+    @include flexbox(row, flex-start, center);
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+  .tags-footer {
+    min-width: 60px;
+    margin: 5px 15px;
+    text-transform: capitalize;
+    text-decoration: underline;
+  }
+  .copy {
+    margin-top: auto;
+    width: 100%;
+    height: 30px;
+    @include flexbox(row, center, center);
   }
 }

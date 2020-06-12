@@ -219,27 +219,32 @@ a {
 //HEADER-PRINCIPAL
 
 .header-principal {
+  margin-top: 20px;
+  max-width: 1240px;
+  height: 300px;
+}
+.swiper-slide {
   background: url(../images/photography-of-a-man-wearing-gray-jacket-looking-back-792385.jpg);
   @include background(cover, no-repeat, center);
-  margin-top: 20px;
-  padding: 20px 0;
-  @include flexbox(column, flex-end, center);
-  height: 400px;
-  position: relative;
-  border-radius: 5px;
+  width: 100%;
+  height: 100%;
 }
-.header-principal::after {
+.swiper-slide::after {
   content: "";
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   background: rgba(0, 0, 0, 0.596);
-  border-radius: 5px;
+  z-index: -1;
 }
+
 .contenido-header {
+  @include flexbox(column, flex-end, flex-start);
+  width: 100%;
+  height: 100%;
   z-index: 2;
-  @include flexbox(column, center, flex-start);
+  padding-bottom: 20px;
   .tag,
   .contenedor-datos {
     padding: 0 15px;
@@ -248,13 +253,26 @@ a {
   .tag {
     font-size: clamp(0.6875rem, 1vw, 0.9rem);
   }
+  .caras {
+    border-radius: 50%;
+    display: block;
+    height: 25px;
+    width: 25px;
+    box-shadow: 0px 0px 5px white;
+    margin-right: 10px;
+  }
   .datos {
-    width: 65px;
+    min-width: 85px;
     color: #fff;
     font-size: clamp(0.6875rem, 1vw, 0.9rem);
+    justify-content: flex-start;
+    i {
+      margin: 0 20px;
+    }
   }
   .datos:nth-child(1) {
-    width: 120px;
+    min-width: 110px;
+    justify-content: space-between;
   }
   .tema-principal {
     padding: 20px 15px;
@@ -263,22 +281,46 @@ a {
     max-width: 900px;
   }
 }
+.swiper-slide:nth-child(2) {
+  background: url(../images/apple-coffee-computer-desk-3560.webp);
+  @include background(cover, no-repeat, center);
+}
+.swiper-slide:nth-child(3) {
+  background: url(../images/close-up-of-salad-in-plate-25.webp);
+  @include background(cover, no-repeat, center);
+}
+
+@media (min-width: 500px) {
+  .header-principal {
+    height: 350px;
+  }
+}
 @media (min-width: 768px) {
-  .contenido-header {
-    max-width: 80%;
+  .header-principal {
+    height: 400px;
+    .contenido-header {
+      align-items: center;
+      text-align: center;
+      padding-bottom: 50px;
+    }
+    .caras {
+      height: 35px;
+      width: 35px;
+    }
+    .contenedor-datos {
+      justify-content: center;
+    }
     .datos {
       width: 150px;
+      margin: 0 30px;
     }
   }
 }
 @media (min-width: 1024px) {
   .header-principal {
     height: 500px;
-    justify-content: center;
   }
   .contenido-header {
-    height: 100%;
-    justify-content: flex-end;
     .contenedor-datos {
       margin: 50px 0 20px 0;
     }
@@ -307,6 +349,8 @@ a {
   box-shadow: 1px 1px 5px rgb(226, 226, 226);
   border-radius: 10px;
   max-width: 400px;
+  color: white;
+  background: linear-gradient(-180deg, #6c5b7b 50%, #355c7d 99%);
   .contenedor-img-carta-principal {
     width: 100%;
     @include background(cover, no-repeat, center);
@@ -316,7 +360,7 @@ a {
   }
   .contenedor-img-carta-principal::after {
     content: "";
-    background: var(--color-fondo-oscuro);
+    background: #6c5b7b;
     height: 80px;
     width: 110%;
     position: absolute;
@@ -333,7 +377,7 @@ a {
     margin: 10px 0;
   }
   .tema-principal {
-    color: var(--color-textos-oscuro);
+    color: white;
   }
   .tag {
     display: block;
@@ -382,6 +426,7 @@ a {
   margin: 20px 0;
   @include flexbox(row, flex-start, flex-start);
   max-width: 500px;
+
   .imagen-noticia {
     width: 30%;
     max-width: 80px;
@@ -468,6 +513,8 @@ a {
   flex-direction: column;
   box-shadow: 1px 1px 5px rgb(224, 224, 224);
   border-radius: 10px;
+  background: linear-gradient(175deg, #6c5b7b 60%, #355c7d 99%);
+  color: white;
   .contenedor-img-carta-principal {
     width: 100%;
     @include background(cover, no-repeat, center);
@@ -486,7 +533,7 @@ a {
     margin: 10px 0;
   }
   .tema-principal {
-    color: var(--color-textos-oscuro);
+    color: white;
   }
   .tag {
     display: block;
@@ -507,6 +554,7 @@ a {
   .cartas-ultimos-post {
     flex-direction: row;
     height: 300px;
+    background: linear-gradient(65deg, #6c5b7b 50%, #355c7d 99%);
     .contenedor-img-carta-principal {
       flex-basis: 45%;
     }
@@ -519,7 +567,7 @@ a {
       top: 0;
       right: -50px;
       transform: skew(-5deg);
-      background: var(--color-fondo-oscuro);
+      background: #6c5b7b;
     }
     .contenedor-descripcion-carta-principal {
       margin: 0;
@@ -705,4 +753,16 @@ a {
     height: 30px;
     @include flexbox(row, center, center);
   }
+}
+
+//ESTILOS SWIPER
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  width: 5px;
+  height: 5px;
+  font-size: 20px !important;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  top: 10%;
 }

@@ -368,12 +368,31 @@ a {
 }
 
 .header-principal {
+  margin-top: 20px;
+  max-width: 1240px;
+  height: 300px;
+}
+
+.swiper-slide {
   background: url(../images/photography-of-a-man-wearing-gray-jacket-looking-back-792385.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  margin-top: 20px;
-  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.596);
+  z-index: -1;
+}
+
+.contenido-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -384,39 +403,13 @@ a {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 400px;
-  position: relative;
-  border-radius: 5px;
-}
-
-.header-principal::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  background: rgba(0, 0, 0, 0.596);
-  border-radius: 5px;
-}
-
-.contenido-header {
-  z-index: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  padding-bottom: 20px;
 }
 
 .contenido-header .tag,
@@ -429,14 +422,34 @@ a {
   font-size: clamp(0.6875rem, 1vw, 0.9rem);
 }
 
+.contenido-header .caras {
+  border-radius: 50%;
+  display: block;
+  height: 25px;
+  width: 25px;
+  -webkit-box-shadow: 0px 0px 5px white;
+          box-shadow: 0px 0px 5px white;
+  margin-right: 10px;
+}
+
 .contenido-header .datos {
-  width: 65px;
+  min-width: 85px;
   color: #fff;
   font-size: clamp(0.6875rem, 1vw, 0.9rem);
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.contenido-header .datos i {
+  margin: 0 20px;
 }
 
 .contenido-header .datos:nth-child(1) {
-  width: 120px;
+  min-width: 110px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .contenido-header .tema-principal {
@@ -446,27 +459,55 @@ a {
   max-width: 900px;
 }
 
-@media (min-width: 768px) {
-  .contenido-header {
-    max-width: 80%;
+.swiper-slide:nth-child(2) {
+  background: url(../images/apple-coffee-computer-desk-3560.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.swiper-slide:nth-child(3) {
+  background: url(../images/close-up-of-salad-in-plate-25.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (min-width: 500px) {
+  .header-principal {
+    height: 350px;
   }
-  .contenido-header .datos {
+}
+
+@media (min-width: 768px) {
+  .header-principal {
+    height: 400px;
+  }
+  .header-principal .contenido-header {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    padding-bottom: 50px;
+  }
+  .header-principal .caras {
+    height: 35px;
+    width: 35px;
+  }
+  .header-principal .contenedor-datos {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .header-principal .datos {
     width: 150px;
+    margin: 0 30px;
   }
 }
 
 @media (min-width: 1024px) {
   .header-principal {
     height: 500px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .contenido-header {
-    height: 100%;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
   }
   .contenido-header .contenedor-datos {
     margin: 50px 0 20px 0;
@@ -526,6 +567,9 @@ a {
           box-shadow: 1px 1px 5px #e2e2e2;
   border-radius: 10px;
   max-width: 400px;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #6c5b7b), color-stop(99%, #355c7d));
+  background: linear-gradient(-180deg, #6c5b7b 50%, #355c7d 99%);
 }
 
 .cartas-principales .contenedor-img-carta-principal {
@@ -540,7 +584,7 @@ a {
 
 .cartas-principales .contenedor-img-carta-principal::after {
   content: "";
-  background: var(--color-fondo-oscuro);
+  background: #6c5b7b;
   height: 80px;
   width: 110%;
   position: absolute;
@@ -561,7 +605,7 @@ a {
 }
 
 .cartas-principales .tema-principal {
-  color: var(--color-textos-oscuro);
+  color: white;
 }
 
 .cartas-principales .tag {
@@ -777,6 +821,8 @@ a {
   -webkit-box-shadow: 1px 1px 5px #e0e0e0;
           box-shadow: 1px 1px 5px #e0e0e0;
   border-radius: 10px;
+  background: linear-gradient(175deg, #6c5b7b 60%, #355c7d 99%);
+  color: white;
 }
 
 .cartas-ultimos-post .contenedor-img-carta-principal {
@@ -801,7 +847,7 @@ a {
 }
 
 .cartas-ultimos-post .tema-principal {
-  color: var(--color-textos-oscuro);
+  color: white;
 }
 
 .cartas-ultimos-post .tag {
@@ -825,6 +871,7 @@ a {
         -ms-flex-direction: row;
             flex-direction: row;
     height: 300px;
+    background: linear-gradient(65deg, #6c5b7b 50%, #355c7d 99%);
   }
   .cartas-ultimos-post .contenedor-img-carta-principal {
     -ms-flex-preferred-size: 45%;
@@ -840,7 +887,7 @@ a {
     right: -50px;
     -webkit-transform: skew(-5deg);
             transform: skew(-5deg);
-    background: var(--color-fondo-oscuro);
+    background: #6c5b7b;
   }
   .cartas-ultimos-post .contenedor-descripcion-carta-principal {
     margin: 0;
@@ -1161,5 +1208,17 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  width: 5px;
+  height: 5px;
+  font-size: 20px !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: 10%;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -27,6 +27,10 @@ img {
   width: 100%;
   height: 100%;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .contenedor {
   width: 90%;
@@ -113,46 +117,51 @@ img {
 
 //ESTILOS NAVEGACION PRINCIPAL
 .navegacion-principal {
-  background: aqua;
   width: 100%;
-  height: 50px;
+  height: 60px;
   @include flexbox(column, center, center);
+  background: rgb(250, 250, 250);
 }
 .barra-superior {
   width: 100%;
   height: 50px;
-  background: green;
   @include flexbox(row, center, center);
-
+  max-width: 1240px;
   .logo {
-    background: red;
     height: 100%;
     width: 60%;
     @include flexbox(row, center, center);
   }
   .extras {
     @include flexbox(row, center, center);
-    background: blue;
     height: 100%;
     width: 20%;
+    p {
+      font-weight: bold;
+    }
+    i {
+      margin-left: 10px;
+      background: -webkit-linear-gradient(34deg, #355c7d 10%, #f67280);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 }
 
 .menu-movil {
   width: 20%;
   height: 100%;
-  background-color: aqua;
   @include flexbox(column, center, center);
   .hamburguesa {
     width: 25px;
     height: 3px;
     margin: 3px;
-    background: black;
+    background: -webkit-linear-gradient(34deg, #355c7d 10%, #f67280);
   }
 }
 @media (min-width: 768px) {
   .navegacion-principal {
-    height: 100px;
+    height: 120px;
   }
   .menu-movil {
     @include flexbox(row, center, center);
@@ -160,27 +169,41 @@ img {
       display: none;
     }
     .oculto {
-      background-color: aqua;
+      display: block;
+      background: -webkit-linear-gradient(34deg, #355c7d 10%, #f67280);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      width: 50%;
+      height: 100%;
+      @include flexbox(row, center, center);
+      font-size: 1.1rem;
     }
   }
-  .oculto {
-    background-color: yellow;
+  .menu-desktop {
     width: 100%;
-    height: 50px;
+    height: 60px;
     @include flexbox(row, center, center);
+    border-bottom: 1px solid #c06c84;
     .links {
-      background: magenta;
-      width: 60%;
+      width: 70%;
+      max-width: 1240px;
       height: 100%;
       @include flexbox(row, center, center);
       list-style-type: none;
     }
-    li {
+    .texto-comun {
       width: 20%;
       height: 100%;
-      background: aqua;
       margin: auto;
       @include flexbox(row, center, center);
+      text-transform: capitalize;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    a {
+      background: -webkit-linear-gradient(34deg, #355c7d, #f67280);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
@@ -418,13 +441,13 @@ img {
       width: 70%;
       height: 100%;
       border: 1px solid #355c7d;
-      border-radius: 15px 0 0 15px;
+      border-radius: 25px 0 0 25px;
     }
     .btn {
       width: 25%;
       height: 100%;
       border: none;
-      border-radius: 0 15px 15px 0;
+      border-radius: 0 25px 25px 0;
       text-transform: uppercase;
       background: linear-gradient(to right, #355c7d, #6c5b7b 65%);
       color: white;

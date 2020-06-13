@@ -1,1 +1,1 @@
-# sitio-minimalista-de-arte
+# blog de estilo de vida

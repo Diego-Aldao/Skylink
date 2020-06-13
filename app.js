@@ -1,6 +1,10 @@
 var swiper = new Swiper(".swiper-container", {
   effect: "fade",
-  speed: 1000,
+  speed: 1500,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: true,
+  },
 
   pagination: {
     el: ".swiper-pagination",

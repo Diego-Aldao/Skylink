@@ -138,6 +138,11 @@ a {
   --color4: #355c7d;
 }
 
+.imagen-logo {
+  width: 150px;
+  height: 50px;
+}
+
 .navegacion-principal {
   width: 100%;
   height: 60px;
@@ -158,8 +163,13 @@ a {
 }
 
 .barra-superior {
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid #c06c84;
+  -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.418);
+          box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.418);
   width: 100%;
-  height: 50px;
+  height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,6 +184,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   max-width: 1240px;
+  background: white;
+  z-index: 9999;
 }
 
 .barra-superior .logo {
@@ -192,6 +204,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
 }
 
 .barra-superior .extras {
@@ -249,28 +262,10 @@ a {
 }
 
 @media (min-width: 768px) {
-  .navegacion-principal {
-    height: 120px;
-  }
-  .menu-movil {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .menu-movil .hamburguesa {
+  .barra-superior {
     display: none;
   }
-  .menu-movil .oculto {
+  .oculto {
     display: block;
     background: -webkit-linear-gradient(34deg, #355c7d 10%, #f67280);
     -webkit-background-clip: text;
@@ -293,6 +288,13 @@ a {
     font-size: 1.1rem;
   }
   .menu-desktop {
+    background: white;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid #c06c84;
+    -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.418);
+            box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.418);
     width: 100%;
     height: 60px;
     display: -webkit-box;
@@ -308,10 +310,51 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    border-bottom: 1px solid #c06c84;
+  }
+  .menu-desktop .contenedor {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .menu-desktop .imagen-logo {
+    width: 15%;
+    display: block;
+    max-width: 150px;
+  }
+  .menu-desktop i {
+    width: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: -webkit-linear-gradient(34deg, #355c7d 10%, #f67280);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .menu-desktop .links {
-    width: 70%;
+    width: 75%;
     max-width: 1240px;
     height: 100%;
     display: -webkit-box;
@@ -332,7 +375,6 @@ a {
   .menu-desktop .texto-comun {
     width: 20%;
     height: 100%;
-    margin: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

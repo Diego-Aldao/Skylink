@@ -113,6 +113,11 @@ a {
   --color4: #355c7d;
 }
 
+.imagen-logo {
+  width: 150px;
+  height: 50px;
+}
+
 //MIXINS
 
 //ESTILOS NAVEGACION PRINCIPAL
@@ -123,14 +128,21 @@ a {
   background: rgb(250, 250, 250);
 }
 .barra-superior {
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid #c06c84;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.418);
   width: 100%;
-  height: 50px;
+  height: 60px;
   @include flexbox(row, center, center);
   max-width: 1240px;
+  background: white;
+  z-index: 9999;
   .logo {
     height: 100%;
     width: 60%;
     @include flexbox(row, center, center);
+    overflow: hidden;
   }
   .extras {
     @include flexbox(row, center, center);
@@ -160,32 +172,49 @@ a {
   }
 }
 @media (min-width: 768px) {
-  .navegacion-principal {
-    height: 120px;
+  .barra-superior {
+    display: none;
   }
-  .menu-movil {
+  .oculto {
+    display: block;
+    background: -webkit-linear-gradient(34deg, #355c7d 10%, #f67280);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 50%;
+    height: 100%;
     @include flexbox(row, center, center);
-    .hamburguesa {
-      display: none;
-    }
-    .oculto {
-      display: block;
-      background: -webkit-linear-gradient(34deg, #355c7d 10%, #f67280);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      width: 50%;
-      height: 100%;
-      @include flexbox(row, center, center);
-      font-size: 1.1rem;
-    }
+    font-size: 1.1rem;
   }
   .menu-desktop {
+    background: white;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid #c06c84;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.418);
     width: 100%;
     height: 60px;
     @include flexbox(row, center, center);
-    border-bottom: 1px solid #c06c84;
+    .contenedor {
+      padding: 0;
+      @include flexbox(row, center, center);
+      height: 100%;
+      margin: 0 auto;
+    }
+    .imagen-logo {
+      width: 15%;
+      display: block;
+      max-width: 150px;
+    }
+    i {
+      width: 5%;
+      @include flexbox(row, center, center);
+      background: -webkit-linear-gradient(34deg, #355c7d 10%, #f67280);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     .links {
-      width: 70%;
+      width: 75%;
       max-width: 1240px;
       height: 100%;
       @include flexbox(row, center, center);
@@ -194,7 +223,6 @@ a {
     .texto-comun {
       width: 20%;
       height: 100%;
-      margin: auto;
       @include flexbox(row, center, center);
       text-transform: capitalize;
       font-weight: bold;

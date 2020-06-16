@@ -4,6 +4,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -160,6 +161,7 @@ a {
       -ms-flex-align: center;
           align-items: center;
   background: #fafafa;
+  position: relative;
 }
 
 .barra-superior {
@@ -1289,5 +1291,154 @@ a {
 .swiper-button-prev,
 .swiper-button-next {
   top: 10%;
+}
+
+.menu-desplegable {
+  width: 100%;
+  height: 100vh;
+  background: white;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  color: white;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+.menu-desplegable .contenedor {
+  padding: 0;
+}
+
+.menu-desplegable .superior-menu-desplegable {
+  width: 100%;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-desplegable .logo-desplegable img {
+  height: 55px;
+  width: 170px;
+}
+
+.menu-desplegable .contenedor-btn-cerrar {
+  width: 50px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.menu-desplegable .contenedor-btn-cerrar .cruz {
+  background: linear-gradient(-45deg, #355c7d 10%, #f67280);
+  width: 35px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-desplegable .contenedor-btn-cerrar .cruz:nth-child(1) {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.menu-desplegable .contenedor-btn-cerrar .cruz:nth-child(2) {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+
+.menu-desplegable .links-nav-desplegable {
+  width: 100%;
+  height: calc(100% - 70px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-desplegable .buscar-desplegable {
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-self: flex-start !important;
+}
+
+.menu-desplegable .buscar-desplegable .input-buscar-desplegable {
+  height: 100%;
+  width: 65%;
+  border: none;
+  padding: 15px;
+  background: #ebebeb;
+}
+
+.menu-desplegable .buscar-desplegable .btn {
+  height: 100%;
+  width: 50px;
+  background: linear-gradient(34deg, #355c7d, #f67280);
+  color: white;
+  border: none;
+}
+
+.menu-desplegable a {
+  background: -webkit-linear-gradient(34deg, #355c7d, #f67280);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #f67280;
+}
+
+@media (min-width: 768px) {
+  .menu-desplegable {
+    display: none;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

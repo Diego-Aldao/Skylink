@@ -48,13 +48,57 @@
         <div class="contenedor">
           <img class="imagen-logo" src="./images/logo01.png" alt="" />
           <ul class="links">
-            <li class="texto-comun"><a href="#">principales</a></li>
-            <li class="texto-comun"><a href="#">noticias</a></li>
-            <li class="texto-comun"><a href="#">ultimos post</a></li>
-            <li class="texto-comun"><a href="#">mas leidos</a></li>
-            <li class="texto-comun"><a href="#">sobre nosotros</a></li>
+            <li class="texto-comun"><a href="#principales">principales</a></li>
+            <li class="texto-comun"><a href="#noticias">noticias</a></li>
+            <li class="texto-comun">
+              <a href="#ultimos-post">ultimos post</a>
+            </li>
+            <li class="texto-comun"><a href="#mas-leidos">mas leidos</a></li>
+            <li class="texto-comun">
+              <a href="#sobre-nosotros">sobre nosotros</a>
+            </li>
           </ul>
           <i class="fas fa-search"></i>
+        </div>
+      </div>
+      <div class="menu-desplegable">
+        <div class="superior-menu-desplegable">
+          <div class="logo-desplegable">
+            <img src="./images/logo01.png" alt="" />
+          </div>
+          <div class="contenedor-btn-cerrar">
+            <span class="cruz cruz-uno"></span><span class="cruz cruz-dos"></span>
+          </div>
+        </div>
+        <div class="links-nav-desplegable">
+          <div class="buscar-desplegable">
+            <input
+              type="search"
+              name=""
+              class="input-buscar-desplegable"
+              placeholder="Buscar..."
+            />
+            <button class="btn btn-desplegable">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <h2 class="tema-principal">
+            <a href="#principales" class="links-desplegable">principales</a>
+          </h2>
+          <h2 class="tema-principal">
+            <a href="#noticias" class="links-desplegable">noticias</a>
+          </h2>
+          <h2 class="tema-principal">
+            <a href="#ultimos-post" class="links-desplegable">ultimos post</a>
+          </h2>
+          <h2 class="tema-principal">
+            <a href="#mas-leidos" class="links-desplegable">mas leidos</a>
+          </h2>
+          <h2 class="tema-principal">
+            <a href="#sobre-nosotros" class="links-desplegable"
+              >sobre nosotros</a
+            >
+          </h2>
         </div>
       </div>
     </nav>
@@ -126,7 +170,7 @@
       <div class="swiper-button-next swiper-button-white"></div>
       <div class="swiper-button-prev swiper-button-white"></div>
     </div>
-    <section class="entradas-principales contenedor">
+    <section id="principales" class="entradas-principales contenedor">
       <header class="contenedor-subtitulos">
         <h2 class="subtitulos">estilo y diseño</h2>
         <span class="linea"></span>
@@ -290,7 +334,7 @@
         </div>
       </div>
     </section>
-    <section class="noticias contenedor">
+    <section id="noticias" class="noticias contenedor">
       <header class="contenedor-subtitulos">
         <h2 class="subtitulos">noticias</h2>
         <span class="linea"></span>
@@ -369,7 +413,7 @@
         <button class="btn btn-principal texto-comun">Sign Up</button>
       </div>
     </section>
-    <section class="contenedor-ultimospost-aside contenedor">
+    <section id="ultimos-post" class="contenedor-ultimospost-aside contenedor">
       <div class="ultimos-post">
         <header class="contenedor-subtitulos">
           <h2 class="subtitulos">ultimos post</h2>
@@ -565,7 +609,7 @@
           <button class="btn btn-secundario">Siguiente</button>
         </div>
       </div>
-      <aside class="mas-leidos contenedor">
+      <aside id="mas-leidos" class="mas-leidos contenedor">
         <div class="contenedor-mas-leidos">
           <!--SWIPER-->
           <header class="contenedor-subtitulos">
@@ -654,7 +698,7 @@
       </aside>
     </section>
     <footer class="footer-index">
-      <div class="about contenedor">
+      <div id="sobre-nosotros" class="about contenedor">
         <header class="contenedor-subtitulos">
           <h2 class="subtitulos">sobre nosotros</h2>
           <span class="linea"></span>

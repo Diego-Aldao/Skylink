@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -126,6 +127,7 @@ a {
   height: 60px;
   @include flexbox(column, center, center);
   background: rgb(250, 250, 250);
+  position: relative;
 }
 .barra-superior {
   position: fixed;
@@ -807,4 +809,91 @@ a {
 .swiper-button-prev,
 .swiper-button-next {
   top: 10%;
+}
+
+//MENU DESPLEGABLE
+
+.menu-desplegable {
+  width: 100%;
+  height: 100vh;
+  background: white;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.3s;
+
+  .contenedor {
+    padding: 0;
+  }
+  .superior-menu-desplegable {
+    width: 100%;
+    height: 70px;
+    @include flexbox(row, space-between, center);
+  }
+  .logo-desplegable {
+    img {
+      height: 55px;
+      width: 170px;
+    }
+  }
+  .contenedor-btn-cerrar {
+    width: 50px;
+    height: 100%;
+    @include flexbox(column, center, center);
+    position: relative;
+    .cruz {
+      background: linear-gradient(-45deg, #355c7d 10%, #f67280);
+      width: 35px;
+      height: 2px;
+      position: absolute;
+      top: 50%;
+      transition-delay: 0s;
+      transition: all 0.3s ease-in-out;
+    }
+    .cruz:nth-child(1) {
+      transform: rotate(135deg);
+    }
+    .cruz:nth-child(2) {
+      transform: rotate(-135deg);
+    }
+  }
+  .links-nav-desplegable {
+    width: 100%;
+    height: calc(100% - 70px);
+    @include flexbox(column, space-evenly, center);
+  }
+  .buscar-desplegable {
+    width: 100%;
+    height: 50px;
+    @include flexbox(row, center, center);
+    justify-self: flex-start !important;
+    .input-buscar-desplegable {
+      height: 100%;
+      width: 65%;
+      border: none;
+      padding: 15px;
+      background: #ebebeb;
+    }
+    .btn {
+      height: 100%;
+      width: 50px;
+      background: linear-gradient(34deg, #355c7d, #f67280);
+      color: white;
+      border: none;
+    }
+  }
+  a {
+    background: -webkit-linear-gradient(34deg, #355c7d, #f67280);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #f67280; //POR SI EL NAVEGADOR NO SOPORTA EL BACKGROUND CLIP Y FILL
+  }
+}
+@media (min-width: 768px) {
+  .menu-desplegable {
+    display: none;
+  }
 }
